@@ -2,6 +2,7 @@
 title: 'Day 1 - AI랑 친해지기 프로젝트를 시작하며, 블로그부터 만들었다'
 description: '매일 AI를 직접 써보고 기록하기로 했다. 첫날은 Astro와 GitHub Pages로 블로그를 띄웠다.'
 pubDate: 'Oct 08 2026'
+category: '개발'
 ---
 
 ## 왜 시작했나

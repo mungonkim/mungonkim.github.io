@@ -1,0 +1,65 @@
+---
+import type { CategoryItem } from '../utils/categories';
+
+interface Props {
+	items: CategoryItem[];
+	total: number;
+	// 현재 선택된 카테고리 슬러그 (전체 보기면 생략)
+	current?: string;
+}
+
+const { items, total, current } = Astro.props;
+---
+
+<nav class="category-nav" aria-label="카테고리">
+	<a class:list={['chip', { active: !current }]} href="/blog/">
+		전체 <span class="count">{total}</span>
+	</a>
+	{
+		items.map((item) => (
+			<a class:list={['chip', { active: current === item.slug }]} href={`/category/${item.slug}/`}>
+				{item.name} <span class="count">{item.count}</span>
+			</a>
+		))
+	}
+</nav>
+
+<style>
+	.category-nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 2rem;
+	}
+	.chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.35rem 0.9rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		color: var(--muted);
+		font-size: 0.9rem;
+		font-weight: 500;
+		text-decoration: none;
+		transition:
+			color 0.15s ease,
+			border-color 0.15s ease,
+			background 0.15s ease;
+	}
+	.chip:hover {
+		color: var(--accent);
+		border-color: var(--accent);
+	}
+	.chip.active {
+		background: var(--accent-soft);
+		border-color: var(--accent);
+		color: var(--accent);
+		font-weight: 600;
+	}
+	.count {
+		font-size: 0.8rem;
+		opacity: 0.7;
+	}
+</style>

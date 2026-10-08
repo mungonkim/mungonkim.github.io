@@ -1,0 +1,32 @@
+---
+import { CATEGORY_SLUGS, type CategoryName } from '../consts';
+
+interface Props {
+	name: CategoryName;
+	// 카드 전체가 링크인 곳에서는 링크 중첩을 피하기 위해 false로 둔다
+	link?: boolean;
+}
+
+const { name, link = false } = Astro.props;
+const Tag = link ? 'a' : 'span';
+const href = link ? `/category/${CATEGORY_SLUGS[name]}/` : undefined;
+---
+
+<Tag class="badge" href={href}>{name}</Tag>
+
+<style>
+	.badge {
+		display: inline-block;
+		padding: 0.1rem 0.7rem;
+		background: var(--accent-soft);
+		border-radius: 999px;
+		color: var(--accent);
+		font-size: 0.78rem;
+		font-weight: 600;
+		line-height: 1.7;
+		text-decoration: none;
+	}
+	a.badge:hover {
+		color: var(--accent-2);
+	}
+</style>

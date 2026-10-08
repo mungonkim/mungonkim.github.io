@@ -2,8 +2,8 @@
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import PostCard from '../components/PostCard.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 // 최신 글 5개만 노출
@@ -101,40 +101,6 @@ const recentPosts = (await getCollection('blog'))
 				display: grid;
 				gap: 1.25rem;
 			}
-			.card {
-				display: block;
-				padding: 1.5rem 1.6rem;
-				background: var(--surface);
-				border: 1px solid var(--border);
-				border-radius: var(--radius);
-				box-shadow: var(--shadow);
-				text-decoration: none;
-				transition:
-					transform 0.2s ease,
-					box-shadow 0.2s ease,
-					border-color 0.2s ease;
-			}
-			.card:hover {
-				transform: translateY(-3px);
-				box-shadow: var(--shadow-hover);
-				border-color: var(--accent);
-			}
-			.card .date {
-				margin: 0 0 0.4rem;
-				color: var(--accent);
-				font-size: 0.85rem;
-				font-weight: 600;
-			}
-			.card .title {
-				margin: 0 0 0.5rem;
-				font-size: 1.25rem;
-				color: var(--text);
-			}
-			.card .desc {
-				margin: 0;
-				color: var(--muted);
-				font-size: 0.95rem;
-			}
 			@media (max-width: 720px) {
 				.hero h1 {
 					font-size: 2.2rem;
@@ -168,13 +134,7 @@ const recentPosts = (await getCollection('blog'))
 				{
 					recentPosts.map((post) => (
 						<li>
-							<a class="card" href={`/blog/${post.id}/`}>
-								<p class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
-								<h3 class="title">{post.data.title}</h3>
-								<p class="desc">{post.data.description}</p>
-							</a>
+							<PostCard post={post} />
 						</li>
 					))
 				}

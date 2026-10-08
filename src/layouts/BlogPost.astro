@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
+import CategoryBadge from '../components/CategoryBadge.astro';
 import Comments from '../components/Comments.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
@@ -9,7 +10,7 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, category } = Astro.props;
 
 // 블로그 글에서만 댓글을 보여준다 (About 등 고정 페이지는 제외)
 const showComments = Astro.url.pathname.startsWith('/blog/');
@@ -24,11 +25,14 @@ const showComments = Astro.url.pathname.startsWith('/blog/');
 				padding-bottom: 2rem;
 				border-bottom: 1px solid var(--border);
 			}
+			.category {
+				margin-bottom: 0.8rem;
+			}
 			.date {
 				margin: 0 0 0.8rem;
-				color: var(--accent);
+				color: var(--muted);
 				font-size: 0.9rem;
-				font-weight: 600;
+				font-weight: 500;
 			}
 			.updated {
 				margin-left: 0.5rem;
@@ -82,6 +86,13 @@ const showComments = Astro.url.pathname.startsWith('/blog/');
 		<main>
 			<article>
 				<header class="post-header">
+					{
+						category && (
+							<div class="category">
+								<CategoryBadge name={category} link />
+							</div>
+						)
+					}
 					<p class="date">
 						<FormattedDate date={pubDate} />
 						{
