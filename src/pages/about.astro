@@ -1,0 +1,22 @@
+---
+import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="About"
+	description="AI랑 친해지기 프로젝트를 기록하는 블로그"
+	pubDate={new Date('October 08 2026')}
+	heroImage={AboutHeroImage}
+>
+	<p>
+		AI와 친해지기 위해 매일 하나씩 직접 써보고, 그날 배운 것과 막힌 점을 기록하는 블로그입니다.
+	</p>
+
+	<p>
+		개발, 디자인, 마케팅, 데이터 분석, 콘텐츠 제작 등 다양한 분야를 AI로 경험하고, 새로 나온 AI
+		도구와 개념(RAG, MCP, 에이전트 등)을 직접 만들어 보며 이해를 넓혀 가고 있습니다.
+	</p>
+
+	<p>GitHub: <a href="https://github.com/mungonkim">mungonkim</a></p>
+</Layout>
