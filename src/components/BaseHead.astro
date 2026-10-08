@@ -30,6 +30,18 @@ const { title, description, image = FallbackImage } = Astro.props;
 />
 <meta name="generator" content={Astro.generator} />
 
+<!-- 테마 초기화: 화면이 그려지기 전에 저장된 선택을 적용해 깜빡임을 막는다 -->
+<script is:inline>
+	try {
+		const saved = localStorage.getItem('theme');
+		if (saved === 'light' || saved === 'dark') {
+			document.documentElement.setAttribute('data-theme', saved);
+		}
+	} catch (e) {
+		// 저장소 접근이 막힌 환경에서는 기기 설정을 따른다
+	}
+</script>
+
 <!-- 한글 폰트: Pretendard (가변, 동적 서브셋) -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link
