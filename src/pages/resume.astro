@@ -1,0 +1,171 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const works = [
+	'금융 시스템 운영 · 모니터링과 장애 대응',
+	'Java 기반 현업 요구사항 개발 및 유지보수',
+	'Oracle DB 데이터 추출 · 분석',
+	'운영 자동화와 배포 관리 (Azure DevOps)',
+	'운영 프로세스 설계와 협력사 기술 지원 조율',
+];
+
+const skills = ['Java', 'Python', 'Oracle SQL', 'FastAPI', 'REST API', 'Azure DevOps'];
+
+const projects = [
+	{
+		title: 'AI랑 친해지기 블로그',
+		desc: 'Astro와 GitHub Pages로 직접 만든 회고 · 기술 블로그. 푸시하면 자동 배포되고, 댓글과 다크모드, 카테고리를 갖췄습니다.',
+		href: '/blog/day-01-blog-setup/',
+		status: '운영 중',
+	},
+	{
+		title: 'AI 뉴스 카드뉴스 시스템',
+		desc: '매일 최신 AI 기사 하나를 골라 입문자용 카드뉴스를 자동으로 만들어 알려 주는 시스템. MCP 서버와 스케줄러로 구성할 예정입니다.',
+		href: '',
+		status: '진행 예정',
+	},
+];
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead
+			title="이력서 | AI랑 친해지기"
+			description="금융 IT 운영 · 개발 직무를 하며 AI로 일하는 방식을 바꿔 보는 중"
+		/>
+		<style>
+			.lead {
+				margin-bottom: 2.5rem;
+				color: var(--muted);
+				font-size: 1.1rem;
+			}
+			section {
+				margin-bottom: 2.5rem;
+			}
+			section h2 {
+				margin-bottom: 1rem;
+				font-size: 1.3rem;
+			}
+			.works {
+				margin: 0;
+				padding-left: 1.3rem;
+			}
+			.works li {
+				margin-bottom: 0.4rem;
+			}
+			.skills {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			.skills li {
+				padding: 0.25rem 0.9rem;
+				background: var(--accent-soft);
+				border-radius: 999px;
+				color: var(--accent);
+				font-size: 0.9rem;
+				font-weight: 600;
+			}
+			.projects {
+				display: grid;
+				gap: 1rem;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			.project {
+				display: block;
+				padding: 1.3rem 1.5rem;
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: var(--radius);
+				box-shadow: var(--shadow);
+				color: inherit;
+				text-decoration: none;
+			}
+			a.project:hover {
+				border-color: var(--accent);
+				box-shadow: var(--shadow-hover);
+			}
+			.project h3 {
+				margin: 0 0 0.3rem;
+				font-size: 1.1rem;
+			}
+			.status {
+				margin-left: 0.5rem;
+				color: var(--accent);
+				font-size: 0.8rem;
+				font-weight: 600;
+			}
+			.project p {
+				margin: 0;
+				color: var(--muted);
+				font-size: 0.95rem;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>이력서</h1>
+			<p class="lead">
+				금융 IT 시스템의 운영과 개발을 하며, AI로 일하는 방식을 바꿔 보는 중입니다.
+			</p>
+
+			<section>
+				<h2>현재 하는 일</h2>
+				<ul class="works">
+					{works.map((work) => <li>{work}</li>)}
+				</ul>
+			</section>
+
+			<section>
+				<h2>기술</h2>
+				<ul class="skills">
+					{skills.map((skill) => <li>{skill}</li>)}
+				</ul>
+			</section>
+
+			<section>
+				<h2>프로젝트</h2>
+				<ul class="projects">
+					{
+						projects.map((project) => (
+							<li>
+								{project.href ? (
+									<a class="project" href={project.href}>
+										<h3>
+											{project.title}
+											<span class="status">{project.status}</span>
+										</h3>
+										<p>{project.desc}</p>
+									</a>
+								) : (
+									<div class="project">
+										<h3>
+											{project.title}
+											<span class="status">{project.status}</span>
+										</h3>
+										<p>{project.desc}</p>
+									</div>
+								)}
+							</li>
+						))
+					}
+				</ul>
+			</section>
+
+			<section>
+				<h2>링크</h2>
+				<p><a href="https://github.com/mungonkim" target="_blank" rel="noopener">GitHub · mungonkim</a></p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
