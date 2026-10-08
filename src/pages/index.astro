@@ -17,68 +17,168 @@ const recentPosts = (await getCollection('blog'))
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
-			.intro {
-				margin-bottom: 2.5rem;
+			.hero {
+				padding: 2rem 0 3.5rem;
 			}
-			.post-list {
+			.badge {
+				display: inline-block;
+				margin-bottom: 1.2rem;
+				padding: 0.3rem 0.9rem;
+				background: var(--accent-soft);
+				color: var(--accent);
+				border-radius: 999px;
+				font-size: 0.85rem;
+				font-weight: 600;
+			}
+			.hero h1 {
+				margin-bottom: 1rem;
+				font-size: 3rem;
+				line-height: 1.2;
+			}
+			.gradient-text {
+				background: var(--gradient);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+				color: transparent;
+			}
+			.hero p {
+				max-width: 34rem;
+				color: var(--muted);
+				font-size: 1.1rem;
+			}
+			.actions {
+				display: flex;
+				gap: 0.75rem;
+				margin-top: 1.8rem;
+			}
+			.btn {
+				padding: 0.7rem 1.4rem;
+				border-radius: 999px;
+				font-weight: 600;
+				text-decoration: none;
+				transition:
+					transform 0.15s ease,
+					box-shadow 0.15s ease;
+			}
+			.btn:hover {
+				transform: translateY(-2px);
+			}
+			.btn.primary {
+				background: var(--gradient);
+				color: #fff;
+				box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+			}
+			.btn.primary:hover {
+				color: #fff;
+			}
+			.btn.ghost {
+				border: 1px solid var(--border);
+				color: var(--text);
+				background: var(--surface);
+			}
+			.btn.ghost:hover {
+				color: var(--accent);
+				border-color: var(--accent);
+			}
+			.section-head {
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
+				margin-bottom: 1.2rem;
+			}
+			.section-head h2 {
+				margin: 0;
+			}
+			.section-head a {
+				font-size: 0.95rem;
+				text-decoration: none;
+			}
+			.cards {
 				list-style: none;
 				margin: 0;
 				padding: 0;
-				display: flex;
-				flex-direction: column;
-				gap: 1.5rem;
+				display: grid;
+				gap: 1.25rem;
 			}
-			.post-list a {
+			.card {
+				display: block;
+				padding: 1.5rem 1.6rem;
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: var(--radius);
+				box-shadow: var(--shadow);
 				text-decoration: none;
+				transition:
+					transform 0.2s ease,
+					box-shadow 0.2s ease,
+					border-color 0.2s ease;
 			}
-			.post-list h3 {
-				margin: 0;
+			.card:hover {
+				transform: translateY(-3px);
+				box-shadow: var(--shadow-hover);
+				border-color: var(--accent);
 			}
-			.post-list a:hover h3 {
+			.card .date {
+				margin: 0 0 0.4rem;
 				color: var(--accent);
+				font-size: 0.85rem;
+				font-weight: 600;
 			}
-			.post-list .date {
-				margin: 0.25rem 0 0.25rem;
-				color: rgb(var(--gray));
-				font-size: 0.9rem;
+			.card .title {
+				margin: 0 0 0.5rem;
+				font-size: 1.25rem;
+				color: var(--text);
 			}
-			.post-list .desc {
+			.card .desc {
 				margin: 0;
+				color: var(--muted);
+				font-size: 0.95rem;
 			}
-			.more {
-				display: inline-block;
-				margin-top: 2rem;
+			@media (max-width: 720px) {
+				.hero h1 {
+					font-size: 2.2rem;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<section class="intro">
-				<h1>AI랑 친해지기 👋</h1>
+			<section class="hero">
+				<span class="badge">매일 하나씩, 직접 써보며 배우는 중</span>
+				<h1>
+					<span class="gradient-text">AI랑 친해지기</span><br />프로젝트 기록
+				</h1>
 				<p>
-					매일 AI를 하나씩 직접 써보고, 그날 배운 것과 막힌 점을 기록하는 회고 · 기술 블로그입니다.
-					개발, 디자인, 마케팅, 데이터 분석, 콘텐츠 제작까지 다양한 분야를 AI로 경험하고 있어요.
+					개발, 디자인, 마케팅, 데이터 분석, 콘텐츠 제작까지. 다양한 분야를 AI로 직접 경험하고, 그날
+					배운 것과 막힌 점을 솔직하게 남기는 회고 · 기술 블로그입니다.
 				</p>
+				<div class="actions">
+					<a class="btn primary" href="/blog/">글 읽어보기</a>
+					<a class="btn ghost" href="/about/">소개</a>
+				</div>
 			</section>
 
-			<h2>최근 글</h2>
-			<ul class="post-list">
+			<div class="section-head">
+				<h2>최근 글</h2>
+				<a href="/blog/">전체 보기 →</a>
+			</div>
+			<ul class="cards">
 				{
 					recentPosts.map((post) => (
 						<li>
-							<a href={`/blog/${post.id}/`}>
-								<h3>{post.data.title}</h3>
+							<a class="card" href={`/blog/${post.id}/`}>
 								<p class="date">
 									<FormattedDate date={post.data.pubDate} />
 								</p>
+								<h3 class="title">{post.data.title}</h3>
 								<p class="desc">{post.data.description}</p>
 							</a>
 						</li>
 					))
 				}
 			</ul>
-			<a class="more" href="/blog/">전체 글 보기 →</a>
 		</main>
 		<Footer />
 	</body>

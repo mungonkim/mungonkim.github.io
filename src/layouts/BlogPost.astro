@@ -11,46 +11,64 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="ko">
 	<head>
 		<BaseHead title={title} description={description} />
 		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
+			.post-header {
+				margin-bottom: 2.5rem;
+				padding-bottom: 2rem;
+				border-bottom: 1px solid var(--border);
 			}
-			.hero-image {
-				width: 100%;
+			.date {
+				margin: 0 0 0.8rem;
+				color: var(--accent);
+				font-size: 0.9rem;
+				font-weight: 600;
+			}
+			.updated {
+				margin-left: 0.5rem;
+				color: var(--muted);
+				font-weight: 400;
+			}
+			.post-header h1 {
+				margin: 0 0 0.8rem;
+				font-size: 2.1rem;
+				background: var(--gradient);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+				color: transparent;
+			}
+			.post-header .lead {
+				margin: 0;
+				color: var(--muted);
 			}
 			.hero-image img {
 				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
+				width: 100%;
+				margin-bottom: 2.5rem;
+				border-radius: var(--radius);
+				box-shadow: var(--shadow);
 			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
+			.prose :global(h2) {
+				margin-top: 2.5rem;
 			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
+			.prose :global(h3) {
+				margin-top: 2rem;
 			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
+			.prose :global(ul),
+			.prose :global(ol) {
+				padding-left: 1.4rem;
+				margin: 0 0 1.2em;
 			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
+			.prose :global(li) {
+				margin-bottom: 0.4rem;
 			}
-			.last-updated-on {
-				font-style: italic;
+			@media (max-width: 720px) {
+				.post-header h1 {
+					font-size: 1.7rem;
+				}
 			}
 		</style>
 	</head>
@@ -59,22 +77,28 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<Header />
 		<main>
 			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{updatedDate && (
-								<div class="last-updated-on">
-									Last updated on <FormattedDate date={updatedDate} />
-								</div>
-							)}
+				<header class="post-header">
+					<p class="date">
+						<FormattedDate date={pubDate} />
+						{
+							updatedDate && (
+								<span class="updated">
+									· 수정 <FormattedDate date={updatedDate} />
+								</span>
+							)
+						}
+					</p>
+					<h1>{title}</h1>
+					<p class="lead">{description}</p>
+				</header>
+				{
+					heroImage && (
+						<div class="hero-image">
+							<Image width={1020} height={510} src={heroImage} alt="" />
 						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
+					)
+				}
+				<div class="prose">
 					<slot />
 				</div>
 			</article>
