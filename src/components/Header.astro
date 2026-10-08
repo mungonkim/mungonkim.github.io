@@ -57,6 +57,8 @@ import HeaderLink from './HeaderLink.astro';
 			(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 		const next = current === 'dark' ? 'light' : 'dark';
 		root.setAttribute('data-theme', next);
+		// 댓글창 등 다른 컴포넌트가 테마 변경을 알 수 있도록 이벤트를 보낸다
+		window.dispatchEvent(new Event('themechange'));
 		try {
 			localStorage.setItem('theme', next);
 		} catch (e) {
