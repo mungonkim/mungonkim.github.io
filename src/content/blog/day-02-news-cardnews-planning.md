@@ -117,13 +117,13 @@ AI에게 이렇게 시키면 기사 선정과 확인을 함께 해 준다.
 완성한 카드 7장이다. 글자가 읽히는지, 사실과 다른 내용이 없는지 확인한 뒤에 올릴 예정이다.
 
 <div class="card-grid">
-  <img src="/images/day-02/card-01.jpg" alt="카드 1장: 표지. ChatGPT가 계산기까지 만들어 줘요" loading="lazy" />
-  <img src="/images/day-02/card-02.jpg" alt="카드 2장: 무슨 일이야? ChatGPT 답이 달라졌어요" loading="lazy" />
-  <img src="/images/day-02/card-03.jpg" alt="카드 3장: 뭐가 달라졌어? 글 대신 눌러 보는 답" loading="lazy" />
-  <img src="/images/day-02/card-04.jpg" alt="카드 4장: 용어 풀이 UI" loading="lazy" />
-  <img src="/images/day-02/card-05.jpg" alt="카드 5장: 그래서 나한테 무슨 의미인데? 이렇게 써 보세요" loading="lazy" />
-  <img src="/images/day-02/card-06.jpg" alt="카드 6장: 한 줄 정리. AI가 이제 글 대신 도구로 답해요" loading="lazy" />
-  <img src="/images/day-02/card-07.jpg" alt="카드 7장: 마무리. 댓글과 팔로우 안내" loading="lazy" />
+  <img src="/images/project-2-part-1/card-01.jpg" alt="카드 1장: 표지. ChatGPT가 계산기까지 만들어 줘요" loading="lazy" />
+  <img src="/images/project-2-part-1/card-02.jpg" alt="카드 2장: 무슨 일이야? ChatGPT 답이 달라졌어요" loading="lazy" />
+  <img src="/images/project-2-part-1/card-03.jpg" alt="카드 3장: 뭐가 달라졌어? 글 대신 눌러 보는 답" loading="lazy" />
+  <img src="/images/project-2-part-1/card-04.jpg" alt="카드 4장: 용어 풀이 UI" loading="lazy" />
+  <img src="/images/project-2-part-1/card-05.jpg" alt="카드 5장: 그래서 나한테 무슨 의미인데? 이렇게 써 보세요" loading="lazy" />
+  <img src="/images/project-2-part-1/card-06.jpg" alt="카드 6장: 한 줄 정리. AI가 이제 글 대신 도구로 답해요" loading="lazy" />
+  <img src="/images/project-2-part-1/card-07.jpg" alt="카드 7장: 마무리. 댓글과 팔로우 안내" loading="lazy" />
 </div>
 
 ## 막혔던 점, 그리고 배운 점
