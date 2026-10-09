@@ -27,7 +27,7 @@ export const PROJECTS: Project[] = [
 		number: 2,
 		name: 'AI 뉴스 카드뉴스 시스템',
 		desc: '매일 최신 AI 기사 하나를 골라 입문자용 카드뉴스로 만들어 슬랙으로 알려 주는 시스템. 클라우드에서 자동으로 실행되고, 업로드는 직접 합니다.',
-		status: '진행 중',
+		status: '운영 중',
 	},
 ];
 
