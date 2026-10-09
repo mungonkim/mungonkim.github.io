@@ -73,6 +73,25 @@ const showComments = Astro.url.pathname.startsWith('/blog/');
 			.prose :global(li) {
 				margin-bottom: 0.4rem;
 			}
+			/* 글 안의 카드뉴스 이미지를 격자로 보여 준다 */
+			.prose :global(.card-grid) {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+				gap: 0.8rem;
+				margin: 1.5rem 0 2rem;
+			}
+			.prose :global(.card-grid img) {
+				width: 100%;
+				height: auto;
+				border-radius: 12px;
+				box-shadow: var(--shadow);
+			}
+			/* 표가 화면보다 넓을 때 가로로 스크롤되게 한다 */
+			.prose :global(table) {
+				display: block;
+				overflow-x: auto;
+				font-size: 0.95em;
+			}
 			@media (max-width: 720px) {
 				.post-header h1 {
 					font-size: 1.7rem;
