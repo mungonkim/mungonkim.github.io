@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import CategoryBadge from './CategoryBadge.astro';
+import { getProject } from '../data/projects';
 import FormattedDate from './FormattedDate.astro';
 
 interface Props {
@@ -8,12 +9,21 @@ interface Props {
 }
 
 const { post } = Astro.props;
+const project = post.data.project ? getProject(post.data.project) : undefined;
 ---
 
 <a class="card" href={`/blog/${post.id}/`}>
 	<div class="meta">
 		{post.data.category && <CategoryBadge name={post.data.category} />}
 		<span class="date"><FormattedDate date={post.data.pubDate} /></span>
+		{
+			project && (
+				<span class="project">
+					프로젝트 {project.number}
+					{post.data.part ? ` · ${post.data.part}편` : ""}
+				</span>
+			)
+		}
 	</div>
 	<h3 class="title">{post.data.title}</h3>
 	<p class="desc">{post.data.description}</p>
@@ -45,6 +55,10 @@ const { post } = Astro.props;
 		margin-bottom: 0.5rem;
 	}
 	.date {
+		color: var(--muted);
+		font-size: 0.85rem;
+	}
+	.project {
 		color: var(--muted);
 		font-size: 0.85rem;
 	}

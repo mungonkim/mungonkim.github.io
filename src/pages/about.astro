@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { PROJECTS } from '../data/projects';
 
 const works = [
 	'금융 시스템 운영 · 모니터링과 장애 대응',
@@ -13,20 +14,8 @@ const works = [
 
 const skills = ['Java', 'Python', 'Oracle SQL', 'FastAPI', 'REST API', 'Azure DevOps'];
 
-const projects = [
-	{
-		title: 'AI랑 친해지기 블로그',
-		desc: 'Astro와 GitHub Pages로 직접 만든 회고 · 기술 블로그. 푸시하면 자동 배포되고, 댓글과 다크모드, 카테고리를 갖췄습니다.',
-		href: '/blog/day-01-blog-setup/',
-		status: '운영 중',
-	},
-	{
-		title: 'AI 뉴스 카드뉴스 시스템',
-		desc: '매일 최신 AI 기사 하나를 골라 입문자용 카드뉴스를 자동으로 만들어 알려 주는 시스템. MCP 서버와 스케줄러로 구성할 예정입니다.',
-		href: '',
-		status: '진행 예정',
-	},
-];
+// 프로젝트 목록은 src/data/projects.ts에서 관리한다
+
 ---
 
 <!doctype html>
@@ -145,25 +134,15 @@ const projects = [
 				<h2>프로젝트</h2>
 				<ul class="projects">
 					{
-						projects.map((project) => (
+						PROJECTS.map((project) => (
 							<li>
-								{project.href ? (
-									<a class="project" href={project.href}>
-										<h3>
-											{project.title}
-											<span class="status">{project.status}</span>
-										</h3>
-										<p>{project.desc}</p>
-									</a>
-								) : (
-									<div class="project">
-										<h3>
-											{project.title}
-											<span class="status">{project.status}</span>
-										</h3>
-										<p>{project.desc}</p>
-									</div>
-								)}
+								<a class="project" href={`/project/${project.slug}/`}>
+									<h3>
+										프로젝트 {project.number} · {project.name}
+										<span class="status">{project.status}</span>
+									</h3>
+									<p>{project.desc}</p>
+								</a>
 							</li>
 						))
 					}

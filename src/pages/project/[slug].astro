@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import PostCard from '../../components/PostCard.astro';
+import { SITE_TITLE } from '../../consts';
+import { PROJECTS } from '../../data/projects';
+
+// 프로젝트마다 페이지를 만들고, 그 프로젝트의 글을 1편부터 순서대로 보여 준다
+export async function getStaticPaths() {
+	const allPosts = await getCollection('blog');
+	return PROJECTS.map((project) => ({
+		params: { slug: project.slug },
+		props: {
+			project,
+			posts: allPosts
+				.filter((post) => post.data.project === project.slug)
+				.sort((a, b) => (a.data.part ?? 0) - (b.data.part ?? 0)),
+		},
+	}));
+}
+
+const { project, posts } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={`프로젝트 ${project.number} · ${project.name} | ${SITE_TITLE}`} description={project.desc} />
+		<style>
+			.status {
+				display: inline-block;
+				margin-bottom: 0.8rem;
+				padding: 0.2rem 0.7rem;
+				background: var(--accent-soft);
+				color: var(--accent);
+				border-radius: 999px;
+				font-size: 0.85rem;
+				font-weight: 600;
+			}
+			.page-title {
+				margin-bottom: 0.6rem;
+			}
+			.page-desc {
+				margin-bottom: 2rem;
+				color: var(--muted);
+			}
+			.cards {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: grid;
+				gap: 1.25rem;
+			}
+			.back {
+				display: inline-block;
+				margin-top: 2rem;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<span class="status">{project.status}</span>
+			<h1 class="page-title">프로젝트 {project.number} · {project.name}</h1>
+			<p class="page-desc">{project.desc}</p>
+			{
+				posts.length > 0 ? (
+					<ul class="cards">
+						{posts.map((post) => (
+							<li>
+								<PostCard post={post} />
+							</li>
+						))}
+					</ul>
+				) : (
+					<p class="page-desc">아직 올라온 글이 없습니다.</p>
+				)
+			}
+			<a class="back" href="/about/">← 소개로 돌아가기</a>
+		</main>
+		<Footer />
+	</body>
+</html>
