@@ -2,7 +2,7 @@
 title: '프로젝트 2 (3편) - 매일 자동이라더니, 이틀 동안 카드가 안 왔다'
 description: 'GitHub Actions 예약 실행이 이틀 연속 돌지 않았다. 원인을 좁혀 간 과정과, 외부 예약 서비스(cron-job.org)로 시작 시각만 맡겨 해결한 방법을 정리했다.'
 pubDate: 'Oct 11 2026'
-category: '프로젝트 회고'
+category: '만들기 기록'
 project: 'news-cardnews'
 part: 3
 ---

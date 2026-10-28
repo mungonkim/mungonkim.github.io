@@ -2,7 +2,7 @@
 title: '프로젝트 3 (3편) - 잘못된 입력을 예외로 다루기'
 description: '공백만 있는 이름과 칸이 모자란 주문 줄을 ValueError로 막고, 여러 줄을 처리할 때는 잘못된 줄만 건너뛰며 기록을 남기게 했다. try 범위를 넓게 잡아서 내 오류 메시지가 덮였던 실수와 트레이스백 읽는 법을 정리했다.'
 pubDate: 'Oct 14 2026'
-category: '개발'
+category: '공부 기록'
 project: 'ai-engineer-roadmap'
 part: 3
 ---

@@ -11,5 +11,8 @@ export default defineConfig({
 	// 이력서 페이지를 About으로 합쳤으므로 기존 주소는 About으로 안내한다
 	redirects: {
 		'/resume': '/about/',
+		// 카테고리 개편(2026-10-28)으로 바뀐 주소
+		'/category/dev': '/category/study/',
+		'/category/project': '/category/build/',
 	},
 });

@@ -2,7 +2,7 @@
 title: '프로젝트 3 (4편) - CSV를 읽어 JSON 보고서로 저장하기'
 description: '주문 CSV 파일을 읽어 요약하고, 결과와 오류 목록을 JSON 파일로 저장하는 작은 명령줄 프로그램을 만들었다. Windows 기본 인코딩 cp949, 엑셀 CSV의 BOM, 종료 코드처럼 파일을 다루면서 처음 부딪힌 것들을 정리했다.'
 pubDate: 'Oct 15 2026'
-category: '개발'
+category: '공부 기록'
 project: 'ai-engineer-roadmap'
 part: 4
 ---

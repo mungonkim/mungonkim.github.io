@@ -2,7 +2,7 @@
 title: '프로젝트 3 (1편) - AI 엔지니어 로드맵 시작, 파이썬 작업 환경 만들기'
 description: 'AI 엔지니어 독학 로드맵의 첫 단계로 uv, pytest, Ruff, Git으로 파이썬 연습 저장소를 만들고 GitHub에 공개했다. 명령어마다 무슨 일을 하는지와 막혔던 점을 정리했다.'
 pubDate: 'Oct 14 2026'
-category: '개발'
+category: '공부 기록'
 project: 'ai-engineer-roadmap'
 part: 1
 ---

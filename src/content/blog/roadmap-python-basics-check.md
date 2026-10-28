@@ -2,7 +2,7 @@
 title: '프로젝트 3 (2편) - 파이썬 기초를 테스트 18개로 점검했다'
 description: '파이썬 기본 문법을 일주일 동안 다시 배우는 대신, 테스트가 먼저 있는 문제 8개로 빠르게 점검했다. 문제별 풀이 방법과, 예상과 달랐던 set의 순서와 round의 동작을 정리했다.'
 pubDate: 'Oct 14 2026'
-category: '개발'
+category: '공부 기록'
 project: 'ai-engineer-roadmap'
 part: 2
 ---

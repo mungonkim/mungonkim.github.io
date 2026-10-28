@@ -2,7 +2,7 @@
 title: '프로젝트 1 - AI랑 친해지기 블로그를 만들었다'
 description: '매일 AI를 직접 써 보고 기록하기로 했다. 첫날은 Astro와 GitHub Pages로 블로그를 만들고, 만드는 과정을 순서대로 적어 뒀다.'
 pubDate: 'Oct 08 2026'
-category: '개발'
+category: '만들기 기록'
 project: 'blog'
 part: 1
 ---

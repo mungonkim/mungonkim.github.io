@@ -2,7 +2,7 @@
 title: '프로젝트 3 (5편) - 주문을 클래스로 바꾸고 타입 힌트 붙이기'
 description: '딕셔너리로 주고받던 주문을 Order, OrderBook 클래스로 바꾸고 mypy --strict를 통과시켰다. 이번부터 개념 → 예측 실습 → 테스트 순서로 바꿨고, 기본값 빈 리스트 함정과 "500500" 실험이 가장 기억에 남았다.'
 pubDate: 'Oct 28 2026'
-category: '개발'
+category: '공부 기록'
 project: 'ai-engineer-roadmap'
 part: 5
 ---
