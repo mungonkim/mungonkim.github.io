@@ -110,7 +110,7 @@ green apple
 두 번째 미션을 할 때 결과가 이상했다.
 
 ```text
-C:\Users\kmk14\AI_Study\python-basics>git merge --abort
+C:\...\python-basics>git merge --abort
 fatal: There is no merge to abort (MERGE_HEAD missing).
 ```
 
