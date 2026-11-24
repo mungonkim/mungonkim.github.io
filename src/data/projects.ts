@@ -1,6 +1,6 @@
 // 프로젝트 목록. 새 프로젝트를 시작하면 여기에 추가하고, 글 머리말에 project: '슬러그'를 적는다.
 // 상태가 바뀌면 status만 고치면 홈 · About · 프로젝트 페이지에 모두 반영된다.
-export const PROJECT_SLUGS = ['blog', 'news-cardnews', 'ai-engineer-roadmap'] as const;
+export const PROJECT_SLUGS = ['blog', 'news-cardnews', 'ai-engineer-roadmap', 'today-ai-works'] as const;
 
 export type ProjectSlug = (typeof PROJECT_SLUGS)[number];
 export type ProjectStatus = '진행 중' | '운영 중' | '완료';
@@ -35,6 +35,13 @@ export const PROJECTS: Project[] = [
 		name: 'AI 엔지니어 독학 로드맵',
 		desc: 'Python · SQL · ML 기초부터 AI 서비스, RAG, 에이전트, 배포, 로컬 LLM까지 단계별로 직접 만들며 공부하는 기록. 단계마다 테스트와 README가 있는 결과물을 남깁니다.',
 		status: '진행 중',
+	},
+	{
+		slug: 'today-ai-works',
+		number: 4,
+		name: '오늘의 AI 작품',
+		desc: 'AI와 함께 만든 브라우저 게임 · 생활 도구를 모아 둔 사이트. 작품마다 인스타 릴스 영상을 만들고, 영상 속 도전을 사이트에서 바로 해 볼 수 있습니다.',
+		status: '운영 중',
 	},
 ];
 
