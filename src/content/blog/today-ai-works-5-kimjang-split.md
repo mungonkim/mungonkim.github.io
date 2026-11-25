@@ -129,6 +129,7 @@ https://today-ai-works.pages.dev/tools/kimjang-split/#s=eyJ2IjoxLCJoZWFkcyI6MjIs
 | [3편](/blog/today-ai-works-3-suyuk-thief/) | 수육 도둑 (도전 #3) | 3D 잠입 게임 |
 | [4편](/blog/today-ai-works-4-kimjang-conveyor/) | 김장 컨베이어 대소동 (도전 #4) | 손빠르기 게임 |
 | 5편 | 김장 품앗이 정산기 | 생활 도구 |
+| [6편](/blog/today-ai-works-6-year-receipt/) | 2026 나의 연말 영수증 | 생활 도구 |
 
 작품이 더 쌓이면 도메인을 사서 연결하고 광고를 붙일 생각이다.
 
